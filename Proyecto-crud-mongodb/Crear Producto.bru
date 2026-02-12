@@ -1,0 +1,31 @@
+meta {
+  name: Crear Producto
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:5000/api/productos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGUxOWY1MmVhYzcxOTQ3NmFhMWYzNSIsImVtYWlsIjoicGVwZTJAZWplbXBsby5jb20iLCJpYXQiOjE3NzA5MjA4MzAsImV4cCI6MTc3MTAwNzIzMH0.UHfpuyB_H2dflSi_mACTW8RFSHA7vaCCZXhIr4FJ1cw
+}
+
+body:json {
+  {
+    "nombre": "Notebook Lenovo",
+    "descripcion": "14 pulgadas, 8GB RAM",
+    "precio": 350000,
+    "stock": 10,
+    "categoria": "698e1bdf044b05a1f68bf960"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

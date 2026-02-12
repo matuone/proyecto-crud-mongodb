@@ -1,0 +1,27 @@
+meta {
+  name: Obtener categorias
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:5000/api/categorias
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "_id": "...",
+      "nombre": "Tecnología",
+      "descripcion": "Productos electrónicos"
+    }
+  ]
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
