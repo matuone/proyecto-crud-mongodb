@@ -12,8 +12,16 @@ app.use(express.json());
 
 connectDB();
 
+const categoryRoutes = require('./src/routes/categoryRoutes');
+const productRoutes = require('./src/routes/productRoutes');
+const userRoutes = require('./src/routes/userRoutes');
+
+app.use('/api/categorias', categoryRoutes);
+app.use('/api/productos', productRoutes);
+app.use('/api/usuarios', userRoutes);
+
 app.get('/', function (req, res) {
-  res.status(200).json({ message: 'API funcionando' });
+  res.status(200).json({ mensaje: 'API funcionando correctamente' });
 });
 
 const PORT = process.env.PORT || 5000;
