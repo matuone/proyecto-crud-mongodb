@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Proyecto-crud-mongodb",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -27,22 +27,16 @@ const userSchema = new mongoose.Schema(
 );
 
 // Hook para hashear contraseña antes de guardar
-userSchema.pre('save', async function (next) {
-  try {
-    if (!this.isModified('contraseña')) {
-      return next();
-    }
-
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(this.contraseña, salt);
-    this.contraseña = hash;
-    next();
-  } catch (error) {
-    next(error);
+userSchema.pre('save', async function () {
+  if (!this.isModified('contraseña')) {
+    return;
   }
+
+  const salt = await bcrypt.genSalt(10);
+  this.contraseña = await bcrypt.hash(this.contraseña, salt);
 });
 
-// Comparacion de contraseñas
+// Comparación de contraseñas
 userSchema.methods.compararContraseña = async function (contraseñaIngresada) {
   return bcrypt.compare(contraseñaIngresada, this.contraseña);
 };

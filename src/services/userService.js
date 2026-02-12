@@ -1,9 +1,9 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
-function registrarUsuario(data) {
+async function registrarUsuario(data) {
   const usuario = new User(data);
-  return usuario.save();
+  return await usuario.save();
 }
 
 async function loginUsuario(email, contraseña) {
