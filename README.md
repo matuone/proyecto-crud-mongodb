@@ -12,6 +12,7 @@ Una API RESTful robusta y modular desarrollada con Node.js, Express y MongoDB. I
 - [Configuración](#-configuración)
 - [Ejecución](#-ejecución)
 - [Endpoints](#-endpoints)
+- [Colección Bruno](#-colección-bruno)
 - [Ejemplos de Uso](#-ejemplos-de-uso)
 
 ---
@@ -437,7 +438,146 @@ Authorization: Bearer <token>
 
 ---
 
-## 💡 Ejemplos de Uso
+## � Colección Bruno
+
+Esta sección documenta todas las peticiones HTTP disponibles en la colección Bruno del proyecto. Incluye ejemplos completos con headers, body y variables.
+
+### 👥 Usuarios
+
+#### 1️⃣ POST - Registrar Usuario
+```http
+POST http://localhost:5000/api/usuarios/register
+Content-Type: application/json
+```
+**Body:**
+```json
+{
+  "nombre": "Matias",
+  "email": "matias@example.com",
+  "contraseña": "123456"
+}
+```
+
+#### 2️⃣ POST - Login Usuario
+```http
+POST http://localhost:5000/api/usuarios/login
+Content-Type: application/json
+```
+**Body:**
+```json
+{
+  "email": "matias@example.com",
+  "contraseña": "123456"
+}
+```
+
+---
+
+### 📂 Categorías
+
+#### 3️⃣ GET - Obtener todas las categorías
+```http
+GET http://localhost:5000/api/categorias
+```
+
+#### 4️⃣ GET - Obtener categoría por ID
+```http
+GET http://localhost:5000/api/categorias/{{categoriaId}}
+```
+
+#### 5️⃣ POST - Crear categoría (JWT)
+```http
+POST http://localhost:5000/api/categorias
+Content-Type: application/json
+Authorization: Bearer {{token}}
+```
+**Body:**
+```json
+{
+  "nombre": "Tecnología",
+  "descripcion": "Productos electrónicos"
+}
+```
+
+#### 6️⃣ PUT - Actualizar categoría (JWT)
+```http
+PUT http://localhost:5000/api/categorias/{{categoriaId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+```
+**Body:**
+```json
+{
+  "nombre": "Tecnología Avanzada",
+  "descripcion": "Productos electrónicos y accesorios"
+}
+```
+
+#### 7️⃣ DELETE - Eliminar categoría (JWT)
+```http
+DELETE http://localhost:5000/api/categorias/{{categoriaId}}
+Authorization: Bearer {{token}}
+```
+
+---
+
+### 🛍️ Productos
+
+#### 8️⃣ GET - Obtener todos los productos
+```http
+GET http://localhost:5000/api/productos
+```
+
+#### 9️⃣ GET - Obtener producto por ID
+```http
+GET http://localhost:5000/api/productos/{{productoId}}
+```
+
+#### 🔟 POST - Crear producto (JWT)
+```http
+POST http://localhost:5000/api/productos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+```
+**Body:**
+```json
+{
+  "nombre": "Notebook Lenovo",
+  "descripcion": "14 pulgadas, 8GB RAM",
+  "precio": 350000,
+  "stock": 10,
+  "categoria": "{{categoriaId}}"
+}
+```
+
+#### 1️⃣1️⃣ PUT - Actualizar producto (JWT)
+```http
+PUT http://localhost:5000/api/productos/{{productoId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+```
+**Body:**
+```json
+{
+  "precio": 360000,
+  "stock": 8
+}
+```
+
+#### 1️⃣2️⃣ DELETE - Eliminar producto (JWT)
+```http
+DELETE http://localhost:5000/api/productos/{{productoId}}
+Authorization: Bearer {{token}}
+```
+
+**Variables utilizadas:**
+- `{{token}}`: Token JWT obtenido del login
+- `{{categoriaId}}`: ID de la categoría a consultar/modificar
+- `{{productoId}}`: ID del producto a consultar/modificar
+
+---
+
+## �💡 Ejemplos de Uso
 
 ### Con cURL
 
