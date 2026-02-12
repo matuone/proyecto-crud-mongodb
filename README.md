@@ -137,8 +137,10 @@ Esta API proporciona un sistema completo de gestión de productos y categorías 
 Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 
 ```env
-# MongoDB
+# MongoDB en la nube
 MONGODB_URI=mongodb+srv://<usuario>:<contraseña>@<cluster>/<bdname>?retryWrites=true&w=majority
+# MongoDB local
+MONGODB_LOCAL_URI=mongodb://localhost:27017/proyectocrud
 
 # Puerto del servidor
 PORT=5000
@@ -148,8 +150,18 @@ JWT_SECRET=tu_clave_secreta_super_segura_aqui
 ```
 
 **Ejemplo de .env.example:**
+
+> **Nota importante para quienes corrigen o prueban el proyecto:**
+>
+> No es necesario tener la URI de MongoDB en la nube del autor. Simplemente cree su propio archivo `.env` a partir de `.env.example` y complete:
+> - Su propia URI de MongoDB Atlas (si quiere probar en la nube), o
+> - Use la conexión local (`MONGODB_LOCAL_URI`) si tiene MongoDB instalado en su máquina.
+>
+> El proyecto funcionará automáticamente con cualquiera de las dos opciones.
+
 ```env
 MONGODB_URI=mongodb+srv://usuario:contraseña@cluster-crud-mongodb.hlnn1we.mongodb.net/proyectoCrud?retryWrites=true&w=majority
+MONGODB_LOCAL_URI=mongodb://localhost:27017/proyectocrud
 PORT=5000
 JWT_SECRET=supersecreto123
 ```
@@ -169,6 +181,19 @@ El servidor se iniciará en `http://localhost:5000`
 ```bash
 npm start
 ```
+
+---
+
+## 🧩 Colección Bruno
+
+Para probar los endpoints de la API con Bruno:
+
+1. Abre Bruno.
+2. Haz clic en **Open Collection**.
+3. Selecciona la carpeta `bruno-collections` dentro del proyecto.
+4. Se cargarán todas las peticiones listas para usar y testear la API.
+
+Así podrás importar fácilmente todas las requests y probar el funcionamiento del backend.
 
 ---
 
