@@ -11,10 +11,10 @@ function connectDB() {
   mongoose
     .connect(uri)
     .then(function () {
-      console.log('Conectado a MongoDB');
+      console.log('Conectado a MongoDB✅');
     })
     .catch(function (error) {
-      console.error('Error al conectar a MongoDB:', error.message);
+      console.error('Error al conectar a MongoDB⛔:', error.message);
       process.exit(1);
     });
 }
