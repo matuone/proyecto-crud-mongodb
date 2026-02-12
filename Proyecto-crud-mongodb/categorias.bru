@@ -1,0 +1,28 @@
+meta {
+  name: categorias
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5000/api/categorias
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGUxOWY1MmVhYzcxOTQ3NmFhMWYzNSIsImVtYWlsIjoicGVwZTJAZWplbXBsby5jb20iLCJpYXQiOjE3NzA5MjA4MzAsImV4cCI6MTc3MTAwNzIzMH0.UHfpuyB_H2dflSi_mACTW8RFSHA7vaCCZXhIr4FJ1cw
+}
+
+body:json {
+  {
+    "nombre": "Tecnología",
+    "descripcion": "Productos electrónicos"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
